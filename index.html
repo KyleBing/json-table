@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content="json, json转换table，表格">
+    <meta name='keywords' content="json, json转换table，表格">
+    <title>表格展示 json 数据</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="scss/json2table.css?v=20230608113657">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <script src="../../lib/js/vue_2.66.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app" v-cloak>
+    <div class="title">表格显示 JSON 数据</div>
+
+    <div class="content">
+        <section>
+            <h3 class="section-header mb-2">JSON 字符串： <span>{{ jsonString.length }} 个字符</span></h3>
+            <textarea class="textarea mb-3" type="textarea" v-model="jsonString" placeholder="输入 JSON 数组字符串"></textarea>
+            <button class="button" @click="confirm">确定</button>
+            <div class="tip">{{tip}}</div>
+        </section>
+
+        <section>
+            <table v-if="data.length > 0">
+                <!-- head -->
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th
+                        v-for="(value,key) in data[0]"
+                        :key="key"
+                    >{{key}}</th>
+                </tr>
+                </thead>
+                <!-- body -->
+                <tbody>
+                <tr v-for="(item, index) in data" :key="index">
+                    <td>{{index + 1}}</td>
+                    <td v-for="(label,labelIndex) in item" :key="`label-${labelIndex}`">{{label || '-'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="js/app.js?v=20230608113657"></script>
+<script>
+    setTimeout(() => {
+        if (!/^http:\/\/(a\.kylebing\.cn|localhost|192\.168\.\d{1,3}\.\d{1,3})/i.test(location.href)) {
+            let hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8f8b1c8e03430a10f3c0b6a653b67748";
+            let s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        }
+    }, 1000)
+</script>
+
+
+</body>
+</html>
