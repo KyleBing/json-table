@@ -3,13 +3,22 @@
 @import "utility";
 @import "gutter";
 
+.github-link{
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  &:hover{
+    text-decoration: underline;
+    color: black;
+  }
+}
+
 body{
   position: relative;
   padding: 30px 30px 100px;
   font-family: "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", "Helvetica", sans-serif;
 }
 .title{
-  margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
   font-size: 30px;
