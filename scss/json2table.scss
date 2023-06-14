@@ -4,6 +4,7 @@
 @import "gutter";
 
 body{
+  position: relative;
   padding: 30px 30px 100px;
   font-family: "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", "Helvetica", sans-serif;
 }
@@ -15,7 +16,6 @@ body{
 }
 
 .content{
-  max-width: 1366px;
   display: flex;
   flex-flow: column nowrap;
   margin: 0 auto;
@@ -67,12 +67,19 @@ textarea{
   }
 }
 
+.table-wrapper{
+  position: relative;
+}
+
 table{
+  font-size: 12px;
   thead{
+    position: sticky;
+    top: 0;
     tr{
       th{
-        border: 1px solid $color-border;
-        background-color: transparentize(black, 0.98);
+        border: 1px solid black;
+        background-color: #eee;
         padding: 5px 5px;
         white-space: nowrap;
       }
@@ -90,11 +97,27 @@ table{
         &:nth-child(even){
           background-color: transparentize(black, 0.95);
         }
+        &.highlight{
+          background-color: $blue;
+          td{
+            border-color: $blue;
+            color: white;
+          }
+        }
         td{
           color: black;
           border: 1px solid $color-border;
           padding: 1px 5px;
           white-space: nowrap;
+          &.highlight-light{
+            border-color: transparentize($red, 0.9);
+            background-color: transparentize($red, 0.9);
+          }
+          &.highlight{
+            background-color: $red;
+            border-color: $red;
+            color: white;
+          }
         }
       }
   }

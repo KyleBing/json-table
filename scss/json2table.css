@@ -412,6 +412,7 @@ tt {
 }
 
 body {
+  position: relative;
   padding: 30px 30px 100px;
   font-family: "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", "Helvetica", sans-serif;
 }
@@ -424,7 +425,6 @@ body {
 }
 
 .content {
-  max-width: 1366px;
   display: flex;
   flex-flow: column nowrap;
   margin: 0 auto;
@@ -481,9 +481,20 @@ textarea:focus {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.12);
 }
 
+.table-wrapper {
+  position: relative;
+}
+
+table {
+  font-size: 12px;
+}
+table thead {
+  position: sticky;
+  top: 0;
+}
 table thead tr th {
-  border: 1px solid #dddddd;
-  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid black;
+  background-color: #eee;
   padding: 5px 5px;
   white-space: nowrap;
 }
@@ -497,11 +508,27 @@ table tbody tr:hover td {
 table tbody tr:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.05);
 }
+table tbody tr.highlight {
+  background-color: #007AFF;
+}
+table tbody tr.highlight td {
+  border-color: #007AFF;
+  color: white;
+}
 table tbody tr td {
   color: black;
   border: 1px solid #dddddd;
   padding: 1px 5px;
   white-space: nowrap;
+}
+table tbody tr td.highlight-light {
+  border-color: rgba(255, 59, 48, 0.1);
+  background-color: rgba(255, 59, 48, 0.1);
+}
+table tbody tr td.highlight {
+  background-color: #FF3B30;
+  border-color: #FF3B30;
+  color: white;
 }
 
 @media (max-width: 512px) {
