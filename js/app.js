@@ -34,9 +34,10 @@ let app = new Vue({
             }
         },
 
-        // 清空 rows
-        clearHighlightRows(){
+        // 清空
+        clearHighlight(){
             this.highlightRows = []
+            this.highlightCols = []
         },
 
         // 添加或删除点击的 Row index
@@ -49,10 +50,6 @@ let app = new Vue({
             }
         },
 
-        // 清空 cols
-        clearHighlightCols(){
-            this.highlightCols = []
-        },
 
         // 添加或删除点击的 Row index
         toggleHighlightCols(index){
